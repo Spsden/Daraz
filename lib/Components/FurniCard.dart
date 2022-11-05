@@ -1,3 +1,4 @@
+import 'package:daraz/Components/DetailScreen..dart';
 import 'package:flutter/material.dart';
 
 class FurnitureCard extends StatelessWidget {
@@ -6,11 +7,13 @@ class FurnitureCard extends StatelessWidget {
     required this.name,
     required this.price,
     required this.img,
+    required this.desc,
   }) : super(key: key);
 
   final String name;
   final String price;
   final String img;
+  final String desc;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +21,13 @@ class FurnitureCard extends StatelessWidget {
       height: 170,
       margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => DetailsScreen(
+                      name: name, price: price, desc: desc, imgUrl: img)));
+        },
         child: Stack(
           alignment: Alignment.bottomCenter,
           children: [
@@ -88,8 +98,8 @@ class FurnitureCard extends StatelessWidget {
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                           color: Colors.amber.withOpacity(0.5),
-                          borderRadius:
-                              const BorderRadius.only(topRight: Radius.circular(10))),
+                          borderRadius: const BorderRadius.only(
+                              topRight: Radius.circular(10))),
                       child: Text(
                         price,
                       ),

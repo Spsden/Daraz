@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:daraz/dataclasses/DataModel.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:developer' as dev;
 
@@ -84,13 +84,4 @@ class DataFetch {
       }
     }
   }
-
 }
-
-// final dataProvider = Provider<DataFetch>((ref) => DataFetch());
-// final furnitureDataProvider = FutureProvider<List<Furniture>>((ref) async{
-//   return ref.read(dataProvider).
-//
-// })
-
-

@@ -1,8 +1,6 @@
 import 'package:daraz/Components/FurniCard.dart';
-import 'package:daraz/HomePage.dart';
 import 'package:daraz/utils/DataFetch.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../dataclasses/DataModel.dart';
 
@@ -41,30 +39,21 @@ class _VerticalListState extends State<VerticalList> {
                     FurnitureCard(
                         name: snapshot.data![index].name,
                         price: snapshot.data![index].price,
-                        img: snapshot.data![index].imgUrl));
+                        img: snapshot.data![index].imgUrl,
+                      desc: snapshot.data![index].desc,
+                    ));
           } else {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
         } else {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
 
-        //   snapshot.hasData
-        //       ? ListView.builder(
-        //       physics: const BouncingScrollPhysics(),
-        //       itemCount: snapshot.data?.length,
-        //       itemBuilder: (context, index) => FurnitureCard(
-        //           name: snapshot.data![index].name,
-        //           price: snapshot.data![index].price,
-        //           img: snapshot.data![index].imgUrl))
-        //       : const Center(
-        //     child: CircularProgressIndicator(),
-        //   )
-        // }),
+
       } ));
   }
 }
